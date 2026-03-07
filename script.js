@@ -111,3 +111,44 @@ document.getElementById("quiz").innerHTML =
 "<p>Your Score: " + score + " / " + questions.length + "</p>";
 
 }
+let examTime = 60;
+let examTimer;
+
+function startExam(){
+
+document.getElementById("courses").style.display = "none";
+document.getElementById("quiz").style.display = "block";
+
+questions = courses["programming"];
+
+currentQuestion = 0;
+score = 0;
+
+loadQuestion();
+
+startTimer();
+
+}
+
+function startTimer(){
+
+examTime = 60;
+
+examTimer = setInterval(function(){
+
+document.getElementById("timer").innerText =
+"Time Remaining: " + examTime + " seconds";
+
+examTime--;
+
+if(examTime < 0){
+
+clearInterval(examTimer);
+
+showResult();
+
+}
+
+},1000);
+
+}
