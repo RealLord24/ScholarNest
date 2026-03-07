@@ -31,37 +31,19 @@ options: [
 "Technician"
 ],
 answer: 1
-},
-
-{
-question: "Which of the following is a programming language?",
-options: [
-"HTML",
-"HTTP",
-"FTP",
-"SMTP"
-],
-answer: 0
-},
-
-{
-question: "Which translates source code to machine code?",
-options: [
-"Editor",
-"Compiler",
-"Monitor",
-"Keyboard"
-],
-answer: 1
 }
 
 ];
 
 let currentQuestion = 0;
+let score = 0;
 
 function loadQuestion(){
 
 let q = questions[currentQuestion];
+
+document.getElementById("progress").innerText =
+"Question " + (currentQuestion+1) + " of " + questions.length;
 
 document.getElementById("question").innerText = q.question;
 
@@ -77,9 +59,7 @@ function checkAnswer(option){
 let q = questions[currentQuestion];
 
 if(option === q.answer){
-alert("Correct!");
-}else{
-alert("Wrong answer");
+score++;
 }
 
 currentQuestion++;
@@ -87,8 +67,16 @@ currentQuestion++;
 if(currentQuestion < questions.length){
 loadQuestion();
 }else{
-alert("Quiz finished!");
+showResult();
 }
+
+}
+
+function showResult(){
+
+document.getElementById("quiz").innerHTML =
+"<h2>Quiz Finished</h2>" +
+"<p>Your Score: " + score + " / " + questions.length + "</p>";
 
 }
 
