@@ -1,42 +1,74 @@
-let questions = [
+let courses = {
 
+programming: [
 {
 question: "What is computer programming?",
-options: [
+options:[
 "Using computer hardware",
 "Writing instructions for a computer",
-"Playing games on computer",
-"Repairing computer"
+"Playing games",
+"Repairing computers"
 ],
-answer: 1
+answer:1
 },
 
 {
-question: "A step-by-step procedure to solve a problem is called:",
-options: [
-"Program",
-"Algorithm",
-"Compiler",
-"Syntax"
-],
-answer: 1
-},
-
-{
-question: "Who writes computer programs?",
-options: [
+question:"Who writes computer programs?",
+options:[
 "User",
 "Programmer",
 "Operator",
 "Technician"
 ],
-answer: 1
+answer:1
 }
+],
 
-];
+dbms:[
+{
+question:"What does DBMS stand for?",
+options:[
+"Database Management System",
+"Data Binary Model",
+"Data Backup Model",
+"Digital Base System"
+],
+answer:0
+}
+],
 
+os:[
+{
+question:"Which manages computer memory?",
+options:[
+"Compiler",
+"Operating System",
+"Browser",
+"Keyboard"
+],
+answer:1
+}
+]
+
+};
+
+let questions = [];
 let currentQuestion = 0;
 let score = 0;
+
+function startCourse(course){
+
+questions = courses[course];
+
+document.getElementById("courses").style.display = "none";
+document.getElementById("quiz").style.display = "block";
+
+currentQuestion = 0;
+score = 0;
+
+loadQuestion();
+
+}
 
 function loadQuestion(){
 
@@ -79,5 +111,3 @@ document.getElementById("quiz").innerHTML =
 "<p>Your Score: " + score + " / " + questions.length + "</p>";
 
 }
-
-window.onload = loadQuestion;
