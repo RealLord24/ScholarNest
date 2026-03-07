@@ -93,8 +93,42 @@ function checkAnswer(option){
 
 let q = questions[currentQuestion];
 
+let buttons = [
+document.getElementById("opt0"),
+document.getElementById("opt1"),
+document.getElementById("opt2"),
+document.getElementById("opt3")
+];
+
 if(option === q.answer){
+
+buttons[option].classList.add("correct");
 score++;
+
+}else{
+
+buttons[option].classList.add("wrong");
+buttons[q.answer].classList.add("correct");
+
+}
+
+setTimeout(function(){
+
+buttons.forEach(btn => {
+btn.classList.remove("correct");
+btn.classList.remove("wrong");
+});
+
+currentQuestion++;
+
+if(currentQuestion < questions.length){
+loadQuestion();
+}else{
+showResult();
+}
+
+},1000);
+
 }
 
 currentQuestion++;
