@@ -141,11 +141,16 @@ showResult();
 
 }
 
+
 function showResult(){
 
 document.getElementById("quiz").innerHTML =
 "<h2>Quiz Finished</h2>" +
 "<p>Your Score: " + score + " / " + questions.length + "</p>";
+
+saveScore(score);
+
+}
 
 }
 let examTime = 60;
