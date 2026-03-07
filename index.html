@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<title>ScholarNest</title>
-<link rel="stylesheet" href="style.css">
+    <title>ScholarNest</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body<nav>
+<body>
 
-<h2>ScholarNest</h2>
+<header>
+    <h1>ScholarNest</h1>
+    <p>Your Smart Study Companion</p>
+</header>
 
-<a href="#">Home</a>
-<a <h2>MCQ Practice</h2>
+<div class="container">
+
+    <button onclick="showSection('mcq')">MCQ Practice</button>
+    <button onclick="showSection('exam')">Exam Simulation</button>
+    <button onclick="showSection('summary')">Course Summaries</button>
+
+</div>
+
+<div id="content">
+
+    <div id="mcq" class="section">
+        <h2>MCQ Practice</h2>
 
 <p id="question"></p>
 
@@ -19,44 +31,29 @@
 <button id="opt1" onclick="checkAnswer(1)"></button>
 <button id="opt2" onclick="checkAnswer(2)"></button>
 <button id="opt3" onclick="checkAnswer(3)"></button>
-<a href="#">Exam</a>
-<a href="#">Summaries</a>
 
-</nav>>
-<header>
+        <p id="result"></p>
+    </div>
 
-<h1>Welcome to ScholarNest</h1>
+    <div id="exam" class="section">
+        <h2>Exam Simulation</h2>
+        <p>This feature will simulate timed exams.</p>
+        <button onclick="startExam()">Start Exam</button>
+        <p id="timer"></p>
+    </div>
 
-<p>Smart learning platform for students</p>
+    <div id="summary" class="section">
+        <h2>Course Summaries</h2>
+        <ul>
+            <li>Database Management – Overview of relational models.</li>
+            <li>Operating Systems – Process management and memory.</li>
+            <li>C++ Programming – Variables, loops, and functions.</li>
+        </ul>
+    </div>
 
-<button>Start Practicing</button>
-<button>Take Exam Simulation</button>
-
-</header>
-    <section>
-
-<h2>Popular Courses</h2>
-
-<ul>
-
-<li>Database Management</li>
-<li>Programming (C++)</li>
-<li>Operating Systems</li>
-<li>Educational Psychology</li>
-
-</ul>
-
-    </section>
+</div>
 
 <script src="script.js"></script>
 
 </body>
 </html>
-</body>
-
-</html>
-<footer>
-
-<p>© 2026 ScholarNest - Smart Study Platform</p>
-
-</footer>
