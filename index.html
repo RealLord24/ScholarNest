@@ -32,15 +32,25 @@
     <button onclick="showSection('mcq')">MCQ Practice</button>
     <button onclick="showSection('exam')">Exam Simulation</button>
     <button onclick="showSection('summary')">Course Summaries</button>
-<h2>Select Course</h2>
+    <div id="login">
 
-<div id="courses">
+<h2>Student Login</h2>
+
+<input type="text" id="username" placeholder="Enter your name">
+
+<button onclick="login()">Start Learning</button>
+
+</div> id="courses" style="display:none">
+
+<h2>Select Course</h2>
 
 <button onclick="startCourse('programming')">Programming (C++)</button>
 
 <button onclick="startCourse('dbms')">Database Management</button>
 
 <button onclick="startCourse('os')">Operating Systems</button>
+
+</div>
 
 </div>
     <h2>Exam Simulation</h2>
