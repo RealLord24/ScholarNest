@@ -83,7 +83,10 @@ document.getElementById("opt0").innerText = q.options[0];
 document.getElementById("opt1").innerText = q.options[1];
 document.getElementById("opt2").innerText = q.options[2];
 document.getElementById("opt3").innerText = q.options[3];
+let progressPercent = ((currentQuestion) / questions.length) * 100;
 
+document.getElementById("progress-bar").style.width =
+progressPercent + "%";
 }
 
 function checkAnswer(option){
