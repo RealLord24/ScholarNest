@@ -1,4 +1,6 @@
 let playerName = "";
+let quizCount = 0;
+let bestScore = 0;
 
 function login(){
 
@@ -11,7 +13,12 @@ return;
 
 document.getElementById("login").style.display = "none";
 
+document.getElementById("dashboard").style.display = "block";
+
 document.getElementById("courses").style.display = "block";
+
+document.getElementById("welcome").innerText =
+"Welcome, " + playerName;
 
 }
 let courses = {
@@ -160,11 +167,27 @@ showResult();
 
 function showResult(){
 
+quizCount++;
+
+if(score > bestScore){
+bestScore = score;
+}
+
 document.getElementById("quiz").innerHTML =
 "<h2>Quiz Finished</h2>" +
 "<p>Your Score: " + score + " / " + questions.length + "</p>";
 
+document.getElementById("quizCount").innerText = quizCount;
+
+document.getElementById("bestScore").innerText = bestScore;
+
+document.getElementById("lastScore").innerText = score;
+
 saveScore(score);
+
+}
+
+
 
 }
 
