@@ -43,3 +43,12 @@ background:#2c3e50;
 color:white;
 padding:10px;
 }
+.correct{
+background-color: green;
+color: white;
+}
+
+.wrong{
+background-color: red;
+color: white;
+}
