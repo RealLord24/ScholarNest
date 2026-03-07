@@ -1,46 +1,95 @@
-function showSection(section){
+let questions = [
 
-document.getElementById("mcq").style.display="none";
-document.getElementById("exam").style.display="none";
-document.getElementById("summary").style.display="none";
+{
+question: "What is computer programming?",
+options: [
+"Using computer hardware",
+"Writing instructions for a computer",
+"Playing games on computer",
+"Repairing computer"
+],
+answer: 1
+},
 
-document.getElementById(section).style.display="block";
+{
+question: "A step-by-step procedure to solve a problem is called:",
+options: [
+"Program",
+"Algorithm",
+"Compiler",
+"Syntax"
+],
+answer: 1
+},
+
+{
+question: "Who writes computer programs?",
+options: [
+"User",
+"Programmer",
+"Operator",
+"Technician"
+],
+answer: 1
+},
+
+{
+question: "Which of the following is a programming language?",
+options: [
+"HTML",
+"HTTP",
+"FTP",
+"SMTP"
+],
+answer: 0
+},
+
+{
+question: "Which translates source code to machine code?",
+options: [
+"Editor",
+"Compiler",
+"Monitor",
+"Keyboard"
+],
+answer: 1
+}
+
+];
+
+let currentQuestion = 0;
+
+function loadQuestion(){
+
+let q = questions[currentQuestion];
+
+document.getElementById("question").innerText = q.question;
+
+document.getElementById("opt0").innerText = q.options[0];
+document.getElementById("opt1").innerText = q.options[1];
+document.getElementById("opt2").innerText = q.options[2];
+document.getElementById("opt3").innerText = q.options[3];
 
 }
 
-let question = "What does DBMS stand for?";
-let correctAnswer = "A";
+function checkAnswer(option){
 
-document.getElementById("question").innerHTML =
-question + "<br><br>A. Database Management System <br>B. Data Backup System <br>C. Digital Base System <br>D. Data Binary Model";
+let q = questions[currentQuestion];
 
-function checkAnswer(answer){
-
-if(answer === correctAnswer){
-document.getElementById("result").innerHTML = "Correct!";
-}
-else{
-document.getElementById("result").innerHTML = "Wrong Answer";
+if(option === q.answer){
+alert("Correct!");
+}else{
+alert("Wrong answer");
 }
 
+currentQuestion++;
+
+if(currentQuestion < questions.length){
+loadQuestion();
+}else{
+alert("Quiz finished!");
 }
 
-function startExam(){
-
-let time = 60;
-
-let timer = setInterval(function(){
-
-document.getElementById("timer").innerHTML =
-"Time Remaining: " + time + " seconds";
-
-time--;
-
-if(time < 0){
-clearInterval(timer);
-document.getElementById("timer").innerHTML = "Exam Finished";
 }
 
-},1000)
-
-}
+window.onload = loadQuestion;
