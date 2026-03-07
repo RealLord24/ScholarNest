@@ -152,3 +152,17 @@ showResult();
 },1000);
 
 }
+.progress-container{
+width:80%;
+height:20px;
+background:#ddd;
+margin:20px auto;
+border-radius:10px;
+}
+
+#progress-bar{
+height:100%;
+width:0%;
+background:#4CAF50;
+border-radius:10px;
+}
