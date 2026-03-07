@@ -153,6 +153,21 @@ saveScore(score);
 }
 
 }
+function saveScore(newScore){
+
+let scores = JSON.parse(localStorage.getItem("scores")) || [];
+
+scores.push(newScore);
+
+scores.sort(function(a,b){ return b-a });
+
+scores = scores.slice(0,5);
+
+localStorage.setItem("scores", JSON.stringify(scores));
+
+displayLeaderboard();
+
+}
 let examTime = 60;
 let examTimer;
 
@@ -208,3 +223,27 @@ width:0%;
 background:#4CAF50;
 border-radius:10px;
 }
+function displayLeaderboard(){
+
+let scores = JSON.parse(localStorage.getItem("scores")) || [];
+
+let board = document.getElementById("leaderboard");
+
+board.innerHTML = "";
+
+scores.forEach(function(score,index){
+
+let li = document.createElement("li");
+
+li.innerText = "Player " + (index+1) + " — Score: " + score;
+
+board.appendChild(li);
+
+});
+
+}
+window.onload = function(){
+
+displayLeaderboard();
+
+};
