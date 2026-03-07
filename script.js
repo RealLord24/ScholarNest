@@ -81,13 +81,17 @@ let score = 0;
 
 function startCourse(course){
 
-questions = courses[course];
+questions = questionBank[course];
 
 document.getElementById("courses").style.display = "none";
 document.getElementById("quiz").style.display = "block";
 
 currentQuestion = 0;
 score = 0;
+
+loadQuestion();
+
+}
 
 loadQuestion();
 
