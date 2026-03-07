@@ -169,21 +169,42 @@ saveScore(score);
 }
 
 }
+
 function saveScore(newScore){
 
 let scores = JSON.parse(localStorage.getItem("scores")) || [];
 
-scores.push(newScore);
+scores.push({
+name: playerName,
+score: newScore
+});
 
-scores.sort(function(a,b){ return b-a });
+scores.sort(function(a,b){ return b.score-a.score });
 
 scores = scores.slice(0,5);
 
 localStorage.setItem("scores", JSON.stringify(scores));
 
-displayLeaderboard();
+function displayLeaderboard(){
+
+let scores = JSON.parse(localStorage.getItem("scores")) || [];
+
+let board = document.getElementById("leaderboard");
+
+board.innerHTML = "";
+
+scores.forEach(function(player,index){
+
+let li = document.createElement("li");
+
+li.innerText = (index+1) + ". " + player.name + " — " + player.score;
+
+board.appendChild(li);
+
+});
 
 }
+
 let examTime = 60;
 let examTimer;
 
