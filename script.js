@@ -1,3 +1,19 @@
+let playerName = "";
+
+function login(){
+
+playerName = document.getElementById("username").value;
+
+if(playerName === ""){
+alert("Please enter your name");
+return;
+}
+
+document.getElementById("login").style.display = "none";
+
+document.getElementById("courses").style.display = "block";
+
+}
 let courses = {
 
 programming: [
