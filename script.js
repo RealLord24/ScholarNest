@@ -1,3 +1,6 @@
+function shuffleArray(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
 let playerName = "";
 let quizCount = 0;
 let bestScore = 0;
@@ -81,13 +84,17 @@ let score = 0;
 
 function startCourse(course){
 
-questions = questionBank[course];
+questions = shuffleArray([...questionBank[course]]).slice(0,10);
 
 document.getElementById("courses").style.display = "none";
 document.getElementById("quiz").style.display = "block";
 
 currentQuestion = 0;
 score = 0;
+
+loadQuestion();
+
+}
 
 loadQuestion();
 
